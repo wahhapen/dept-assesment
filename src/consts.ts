@@ -80,6 +80,7 @@ export const sizes = {
   size48: "3rem",
   size46: "2.875rem",
   size45: "2.8125rem",
+  size43: "2.6875rem",
   size40: "2.5rem",
   size36: "2.25rem",
   size34: "2.125rem",

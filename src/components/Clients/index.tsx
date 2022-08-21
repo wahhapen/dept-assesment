@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
-import { colors, mq, sizes } from "../../consts";
+import { colors, mq, mqSimple, sizes } from "../../consts";
 
 const clientsTitle = "Clients";
 const clientsDesciption =
@@ -119,12 +119,10 @@ export const Clients: React.FC = () => {
 
 const ClientsWrapper = styled.section`
   position: relative;
-  ${mq({
+  ${mqSimple({
     padding: [
       `${sizes.size30} ${sizes.size30}`,
-      `${sizes.size30} ${sizes.size30}`,
-      `${sizes.size30} ${sizes.size30}`,
-      `${(sizes.size90, sizes.size20)}`,
+      `${sizes.size90} ${sizes.size43}`,
     ],
   })}
 `;
@@ -171,6 +169,8 @@ const ClientsText = styled.p`
   font-size: ${sizes.size18};
   color: ${colors.white};
 `;
-const ClientsHeading = styled.h4`
+const ClientsHeading = styled.h2`
+  margin: 0;
+  margin-bottom: ${sizes.size32};
   font-size: ${sizes.size34};
 `;
