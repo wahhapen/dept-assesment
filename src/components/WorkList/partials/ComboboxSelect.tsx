@@ -14,10 +14,15 @@ import { colors, mqSimple, sizes } from "../../../consts";
 
 interface IProps {
   list: string[];
+  filterLabel: string;
   changeValue: (value: string) => void;
 }
 
-export const ComboboxSelect: React.FC<IProps> = ({ list, changeValue }) => {
+export const ComboboxSelect: React.FC<IProps> = ({
+  list,
+  filterLabel,
+  changeValue,
+}) => {
   const combobox = useComboboxState({ list, sameWidth: false });
   // value and setValue shouldn't be passed to the select state because the
   // select value and the combobox value are different things.
@@ -36,7 +41,7 @@ export const ComboboxSelect: React.FC<IProps> = ({ list, changeValue }) => {
   return (
     <ComboboxStyled>
       {/* <SelectLabel state={select}>Favorite fruit</SelectLabel> */}
-      <Select state={select} className="select" />
+      <Select aria-label={filterLabel} state={select} className="select" />
       <SelectPopover state={select} composite={false} className="popover">
         <div className="combobox-wrapper">
           <Combobox

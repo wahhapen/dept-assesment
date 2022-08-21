@@ -43,7 +43,7 @@ interface ILogo {
 }
 
 const DeptLogo: React.FC<ILogo> = ({ isColorReverse }) => (
-  <DeptLogoWrapperStyled href="/">
+  <DeptLogoWrapperStyled aria-label="Dept logo" href="/">
     <DeptLogoStyled width="89" height="25">
       <DeptLogoStyledPath
         isColorReverse={isColorReverse}

@@ -165,8 +165,7 @@ const MenuLink = styled.a`
 const MenuInner = styled.ul`
   list-style: none;
   padding: 0;
-  margin: ${sizes.size32} auto 0;
-  max-width: 1440px;
+  margin-top: ${sizes.size32};
   width: 100%;
   display: flex;
   flex-direction: column;

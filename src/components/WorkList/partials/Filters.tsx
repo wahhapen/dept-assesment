@@ -23,11 +23,19 @@ export const Filters: React.FC<IProps> = ({
     <FiltersStyled>
       <FilterRow>
         <FilterLabel>{industriesLabel}</FilterLabel>
-        <ComboboxSelect changeValue={setIndustryFilter} list={industryList} />
+        <ComboboxSelect
+          filterLabel="Select industry filter"
+          changeValue={setIndustryFilter}
+          list={industryList}
+        />
       </FilterRow>
       <FilterRow>
         <FilterLabel>{categoryLabel}</FilterLabel>
-        <ComboboxSelect changeValue={setCategoryFilter} list={categoryList} />
+        <ComboboxSelect
+          filterLabel="Select category filter"
+          changeValue={setCategoryFilter}
+          list={categoryList}
+        />
       </FilterRow>
     </FiltersStyled>
   );
