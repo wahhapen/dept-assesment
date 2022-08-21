@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
-import React from "react";
-import { colors, mq, mqSimple, sizes } from "../../consts";
+import React, { useState } from "react";
+import { mq, sizes } from "../../consts";
 import { ClientCard } from "../ClientCard";
 import { ClientNote } from "../ClientNote";
 import { ClientQuote } from "../ClientQuote";
+import { Filters } from "./partials/Filters";
 
-import { workCasesData } from "./data";
+import { categoryList, industryList, workCasesData } from "./data";
 
 interface ICase {
   industry: string;
@@ -81,19 +82,60 @@ const renderCase = (work: Cases) => {
   }
 };
 
+const notFoundText =
+  "Sorry, these filters didn't work out, try selecting something different";
+
 export const WorkList: React.FC = () => {
+  const [categoryFilter, setCategoryFilter] = useState(categoryList[0]);
+  const [industryFilter, setIndustryFilter] = useState(industryList[0]);
+
+  const filteredData = workCasesData.filter((work) => {
+    if (
+      categoryFilter !== categoryList[0] &&
+      industryFilter !== industryList[0]
+    ) {
+      return categoryFilter === work.category &&
+        industryFilter === work.industry
+        ? work
+        : null;
+    }
+    if (categoryFilter !== categoryList[0]) {
+      return categoryFilter === work.category ? work : null;
+    }
+    if (industryFilter !== industryList[0]) {
+      return industryFilter === work.industry ? work : null;
+    }
+    return work;
+  });
+
   return (
     <section>
-      {/* <Filters /> */}
+      <Filters
+        setCategoryFilter={setCategoryFilter}
+        setIndustryFilter={setIndustryFilter}
+        categoryList={categoryList}
+        industryList={industryList}
+      />
       <WorksGrid>
-        {workCasesData.map((work) => renderCase(work as Cases))}
+        {!!filteredData.length ? (
+          filteredData.map((work) => renderCase(work as Cases))
+        ) : (
+          <NotFoundText>{notFoundText}</NotFoundText>
+        )}
       </WorksGrid>
     </section>
   );
 };
 
+const NotFoundText = styled.span`
+  text-align: center;
+  grid-column: span 4;
+  font-size: ${sizes.size18};
+  padding: ${sizes.size40};
+`;
 const WorksGrid = styled.div`
   flex-direction: column;
+  grid-auto-flow: dense;
   ${mq({
     display: ["flex", "grid"],
   })}

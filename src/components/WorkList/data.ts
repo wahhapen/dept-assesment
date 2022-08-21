@@ -1,3 +1,21 @@
+export const categoryList = [
+  "all work",
+  "experience",
+  "growth",
+  "creative",
+  "engineering",
+];
+export const industryList = [
+  "all industries",
+  "ecommerce",
+  "banking",
+  "electronics",
+  "culture",
+  "tourism",
+  "food",
+  "fashion",
+];
+
 export const workCasesData = [
   {
     company: "BOL.COM",
