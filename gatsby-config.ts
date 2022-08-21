@@ -19,6 +19,19 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-emotion",
     {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Dept Assesment project",
+        short_name: "Dept Assesment project",
+        start_url: "/",
+        background_color: "#000",
+        theme_color: "#000",
+        display: "standalone",
+        icon: "src/images/deptfavicon.svg",
+      },
+    },
+    "gatsby-plugin-offline",
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
