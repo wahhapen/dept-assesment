@@ -2,6 +2,8 @@
   Frontend for landing page with work cases.
 </h1>
 
+<p>Visit site here: https://dept-assesment.vercel.app/</p>
+
 ## 🚀 Quick start
 
 1. **Clone repository and install dependencies using comand below in project's directory**
@@ -14,7 +16,11 @@
    npm run develop
    ```
 
-3. **Site is now running at http://localhost:8000**
+3. **Site is now running at**
+
+   ```
+   http://localhost:8000
+   ```
 
 4. **To see images you need to create .env file with variable:**
 
