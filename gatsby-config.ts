@@ -19,6 +19,12 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-emotion",
     {
+      resolve: "gatsby-plugin-html-attributes",
+      options: {
+        lang: "en",
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Dept Assesment project",
