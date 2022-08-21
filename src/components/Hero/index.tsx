@@ -19,7 +19,7 @@ export const Hero = () => {
 const HeroSectionStyled = styled.section`
   display: flex;
   gap: ${sizes.size32};
-  background-image: url("https://ucarecdn.com/6da574ff-d1ea-476e-9e54-ab1d7d56cf62/");
+  background-image: url("https://ucarecdn.com/6da574ff-d1ea-476e-9e54-ab1d7d56cf62/-/format/auto/");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

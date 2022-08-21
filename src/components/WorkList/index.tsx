@@ -50,7 +50,7 @@ const renderCase = (work: Cases) => {
           key={work.img}
           company={work.company}
           title={work.description}
-          img={`${process.env.GATSBY_CDN_HOST}${work.img}/`}
+          img={`${process.env.GATSBY_CDN_HOST}${work.img}/-/format/auto/`}
         />
       );
     case "inlineCard":

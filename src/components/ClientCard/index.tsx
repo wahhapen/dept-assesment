@@ -110,7 +110,7 @@ const InlineClientCardStyled = styled.a`
       transition: all 0.2s ease-in-out;
     }
     ${Text} {
-      background: url(https://ucarecdn.com/b406c5cf-a365-41ca-b91e-6c7e38fe8392/);
+      background: url("https://ucarecdn.com/b406c5cf-a365-41ca-b91e-6c7e38fe8392/");
 
       background-size: cover;
       background-clip: text;
