@@ -44,12 +44,12 @@ const ReadMoreStyled = styled.span`
     .fake-link-circle {
       stroke: ${colors.white};
       fill: ${colors.white};
-      animation: ${circleOpacity} 0.75s ease-in-out 0s 1 forwards;
+      animation: ${circleOpacity} 0.25s ease-in-out 0s 1 forwards;
     }
     .fake-link-bullet {
       stroke: ${colors.white};
       fill: ${colors.white};
-      animation: ${bulletOpacity} 0.25s ease-in-out 0s 1 forwards;
+      animation: ${bulletOpacity} 0.5s ease-in-out 0s 1 forwards;
     }
   }
 `;
