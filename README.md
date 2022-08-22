@@ -7,9 +7,12 @@
 ## 🚀 Quick start
 
 1. **Clone repository and install dependencies using comand below in project's directory**
+   <p>it's recommended to use the Node version whose status is Active LTS</p>
+
    ```
    npm install
    ```
+
 2. **To start site locally run next comand**
 
    ```
