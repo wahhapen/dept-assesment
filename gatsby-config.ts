@@ -34,9 +34,6 @@ const config: GatsbyConfig = {
         theme_color: "#000",
         display: "standalone",
         icon: "src/images/deptfavicon.svg",
-        icon_options: {
-          purpose: "maskable",
-        },
         icons: [
           {
             src: "/icons/icon-144x144.png",
@@ -44,7 +41,22 @@ const config: GatsbyConfig = {
             type: "image/png",
             purpose: "any",
           },
+          {
+            src: "/icons/icon-256x256.png",
+            sizes: "256x256",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "/icons/icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
         ],
+        icon_options: {
+          purpose: "maskable",
+        },
       },
     },
     "gatsby-plugin-offline",
