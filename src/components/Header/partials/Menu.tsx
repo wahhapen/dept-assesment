@@ -32,7 +32,7 @@ interface IProps {
 }
 
 export const NavMenu: React.FC<IProps> = ({ setIsMenuOpen }) => {
-  const menu = useMenuState({ fixed: true, animated: true });
+  const menu = useMenuState({ fixed: true });
 
   useEffect(() => {
     setIsMenuOpen(menu.open);
