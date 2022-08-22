@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { colors, mq, mqSimple, sizes } from "../../consts";
+import { colors, mqSimple, sizes } from "../../consts";
 import { NavBar } from "./partials/NavBar";
 import { NavMenu } from "./partials/Menu";
 
@@ -24,7 +24,7 @@ interface INavWrapper {
 const NavWrapper = styled.nav<INavWrapper>((props) => {
   const bgcMenuOpen = [`${colors.black}`, `${colors.black}`];
   const bgcMenuClosed = [`${colors.white}`, `${colors.black}`];
-  return mq({
+  return mqSimple({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -71,9 +71,7 @@ const DeptLogoStyled = styled.svg`
 `;
 
 const DeptLogoStyledPath = styled.path<ILogo>((props) =>
-  mq({
-    fill: props.isColorReverse
-      ? ["#fff", "#fff", "#fff"]
-      : ["#000", "#000", "#fff"],
+  mqSimple({
+    fill: props.isColorReverse ? ["#fff", "#fff"] : ["#000", "#fff"],
   })
 );

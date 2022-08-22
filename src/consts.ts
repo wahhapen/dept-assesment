@@ -116,7 +116,7 @@ export const underlineIn = keyframes`
   }
 
   to {
-      transform: translate3d(101%,0,0)
+      transform: translate3d(111%,0,0)
   }
 `;
 export const underlineOut = keyframes`
