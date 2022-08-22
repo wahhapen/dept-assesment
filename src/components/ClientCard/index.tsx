@@ -18,8 +18,9 @@ export const ClientCard: React.FC<IProps> = ({
   urlTo,
   isInline,
 }) => {
+  const style = { "--bg-image": `url(${img})` } as React.CSSProperties;
   return !isInline ? (
-    <ClientCardStyled href={urlTo} style={{ backgroundImage: ` url(${img})` }}>
+    <ClientCardStyled href={urlTo} style={style}>
       <CompanyStyled>{company}</CompanyStyled>
       <Text>{title}</Text>
       <ReadMore />
@@ -45,9 +46,6 @@ const ClientCardStyled = styled.a`
   flex-direction: column;
   justify-content: flex-end;
   gap: ${sizes.size16};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   color: ${colors.white};
   text-decoration: none;
   transition: all ease-in-out 0.25s;
@@ -57,7 +55,26 @@ const ClientCardStyled = styled.a`
       `${sizes.size24} ${sizes.size64}`,
     ],
   })};
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition-timing-function: ease-in-out;
+    transition: transform 10s;
+  }
   &:hover {
+    &:before {
+      transform: scale(1.2) rotate(2deg);
+      transition-timing-function: ease-in-out;
+      transition: transform 10s;
+    }
     &:after {
       transition: all ease-in-out 0.25s;
       transform: translateY(0);

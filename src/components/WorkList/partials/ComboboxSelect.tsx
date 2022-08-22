@@ -71,6 +71,10 @@ const ComboboxStyled = styled.div`
     border: none;
     background-color: transparent;
     color: currentColor;
+    cursor: pointer;
+    &:hover {
+      color: ${colors.grey};
+    }
     &:after {
       content: "";
       width: 100%;
@@ -90,11 +94,16 @@ const ComboboxStyled = styled.div`
     padding: ${sizes.size10};
     border: 1px solid ${colors.grey};
     background-color: ${colors.black2};
+    border-radius: ${sizes.size5};
   }
   .select-item {
     margin: ${sizes.size5};
     padding: ${sizes.size5};
     text-transform: capitalize;
     color: ${colors.white};
+    cursor: pointer;
+    &:hover {
+      color: ${colors.grey};
+    }
   }
 `;
