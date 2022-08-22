@@ -2,7 +2,13 @@ import styled from "@emotion/styled";
 import { Button, Separator } from "ariakit";
 import React from "react";
 import { DeptLogo, FbIcon, TwIcon, IgIcon, TopArrow } from "../../assets";
-import { colors, mqSimple, sizes } from "../../consts";
+import {
+  colors,
+  mqSimple,
+  sizes,
+  underlineIn,
+  underlineOut,
+} from "../../consts";
 import { navLinks } from "../Header/partials/NavBar";
 
 const additionalInfo = {
@@ -15,6 +21,8 @@ const dept = "Dept Agency";
 const currentYear = new Date().getFullYear();
 
 export const Footer: React.FC = () => {
+  const currentPagePath =
+    typeof window !== "undefined" ? window.location.pathname : "/";
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -28,11 +36,19 @@ export const Footer: React.FC = () => {
             <DeptLogo />
           </LogoLink>
           <FooterNav>
-            {navLinks.map((link) => (
-              <li key={link.title}>
-                <NavLink href={link.url}>{link.title}</NavLink>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = currentPagePath === link.url;
+              return (
+                <NavItem key={link.title}>
+                  <NavLink
+                    className={`${isActive && "active"}`}
+                    href={link.url}
+                  >
+                    {link.title}
+                  </NavLink>
+                </NavItem>
+              );
+            })}
           </FooterNav>
           <SocialBar>
             <a href="#">
@@ -141,10 +157,33 @@ const FooterNav = styled.ul`
     marginBottom: [`${sizes.size82}`, `${sizes.size60}`],
   })}
 `;
+const NavItem = styled.li`
+  overflow: hidden;
+`;
 const NavLink = styled.a`
+  position: relative;
   text-transform: uppercase;
   color: ${colors.white};
   text-decoration: none;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    ${colors.white};
+    border-bottom: 1px solid ${colors.white};
+  }
+  &:not(.active)::after {
+    animation: ${underlineIn} 0.25s ease-in-out 0s 1 forwards;
+  }
+  &:hover {
+    &:after {
+      animation: ${underlineOut} 0.25s ease-in-out 0s 1 forwards;
+    }
+  }
 `;
 const SocialBar = styled.div`
   position: absolute;
@@ -180,5 +219,8 @@ const AdditionalInfoInner = styled.div`
   a {
     color: ${colors.grey3};
     text-decoration: none;
+    &:hover {
+      color: ${colors.white};
+    }
   }
 `;

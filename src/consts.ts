@@ -1,3 +1,4 @@
+import { keyframes } from "@emotion/react";
 import facepaint from "facepaint";
 
 export const breakpoints = [768, 992, 1200];
@@ -108,3 +109,22 @@ export const sizes = {
 };
 
 export const fontFamily = "MaisonNeueMG,Helvetica,Arial";
+
+export const underlineIn = keyframes`
+  0% {
+      transform: translateZ(0)
+  }
+
+  to {
+      transform: translate3d(101%,0,0)
+  }
+`;
+export const underlineOut = keyframes`
+  0% {
+      transform: translate3d(-101%,0,0)
+  }
+
+  to {
+      transform: translateZ(0)
+  }
+`;

@@ -11,6 +11,7 @@ import React, { useEffect } from "react";
 import { ActiveArrow, MenuIcon } from "../../../assets";
 import { colors, mq, mqSimple, sizes } from "../../../consts";
 import { LangMenu } from "./LanguageMenu";
+import { MenuTrail } from "./MenuTrail";
 
 const menuTitle = "Menu";
 
@@ -57,14 +58,16 @@ export const NavMenu: React.FC<IProps> = ({ setIsMenuOpen }) => {
 
         <Menu state={menu} className="menuStyle">
           <MenuInner>
-            {menuLinks.map((link) => (
-              <MenuItem as="li" key={link.title} className={"menuItem"}>
-                <MenuLink href={link.url}>
-                  {link.active && <ActiveArrow />}
-                  <span>{link.title}</span>
-                </MenuLink>
-              </MenuItem>
-            ))}
+            <MenuTrail open={menu.open}>
+              {menuLinks.map((link) => (
+                <MenuItem as="span" key={link.title} className={"menuItem"}>
+                  <MenuLink href={link.url}>
+                    {link.active && <ActiveArrow />}
+                    <span>{link.title}</span>
+                  </MenuLink>
+                </MenuItem>
+              ))}
+            </MenuTrail>
           </MenuInner>
           <LangMenu />
         </Menu>
@@ -197,8 +200,28 @@ const MenuButtonIconStyled = styled.span<IMenuButtonProps>`
   .dots {
     ${mqSimple({ opacity: ["0", "1"] })}
     visibility: ${(p) => (p.isOpen ? "hidden" : "visible")};
+    transition: transform ease-in-out 0.25s;
+  }
+  .dot-1,
+  .dot-3 {
+    transition: transform ease-in-out 0.25s;
   }
   .close {
+    transition: transform ease-in-out 0.25s;
     opacity: ${(p) => (p.isOpen ? "1" : "0")};
+  }
+  &:hover {
+    .dot-1 {
+      transform: translateX(4%);
+      transition: transform ease-in-out 0.25s;
+    }
+    .dot-3 {
+      transform: translateX(-4%);
+      transition: transform ease-in-out 0.25s;
+    }
+    .close {
+      transform: scale(1.1);
+      transition: transform ease-in-out 0.25s;
+    }
   }
 `;

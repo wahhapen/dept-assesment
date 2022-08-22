@@ -99,11 +99,14 @@ const FormSectionStyled = styled.section`
     text-transform: uppercase;
     padding: ${sizes.size16} ${sizes.size64};
     cursor: pointer;
+    transition: all ease-in-out 0.25s;
     ${mqSimple({
       width: ["100%", "auto"],
     })}
     &:hover {
-      border: 1px solid ${colors.grey};
+      background-color: ${colors.black};
+      color: ${colors.white};
+      transition: all ease-in-out 0.25s;
     }
   }
 `;

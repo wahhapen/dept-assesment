@@ -1,7 +1,13 @@
 import styled from "@emotion/styled";
 import { Button } from "ariakit";
 import React from "react";
-import { colors, mqSimple, sizes } from "../../../consts";
+import {
+  colors,
+  mqSimple,
+  sizes,
+  underlineIn,
+  underlineOut,
+} from "../../../consts";
 
 export const navLinks = [
   { title: "Work", url: "/" },
@@ -26,7 +32,11 @@ export const NavBar: React.FC<IProps> = ({ isMenuOpen }) => {
 
         return (
           <NavItem isActive={isActive} key={link.title}>
-            <Button as="a" className="navLink" href={link.url}>
+            <Button
+              as="a"
+              className={`navLink ${isActive && "active"}`}
+              href={link.url}
+            >
               {link.title}
             </Button>
           </NavItem>
@@ -54,12 +64,34 @@ interface INavItemProps {
   isActive?: boolean;
 }
 const NavItem = styled.li<INavItemProps>`
-  border-bottom: ${(p) => (p.isActive ? `1px solid ${colors.white}` : "none")};
+  overflow: hidden;
   .navLink {
+    position: relative;
     background-color: transparent;
     text-decoration: none;
     text-transform: uppercase;
     font-size: ${sizes.size18};
     color: ${colors.white};
+    cursor: ${(p) => (p.isActive ? `default` : "pointer")};
+    pointer-events: ${(p) => (p.isActive ? `none` : "initial")};
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 0;
+      width: 100%;
+      ${colors.white};
+      border-bottom: 1px solid ${colors.white};
+    }
+    &:not(.active)::after {
+      animation: ${underlineIn} 0.25s ease-in-out 0s 1 forwards;
+    }
+    &:hover {
+      &:after {
+        animation: ${underlineOut} 0.25s ease-in-out 0s 1 forwards;
+      }
+    }
   }
 `;
