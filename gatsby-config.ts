@@ -27,9 +27,9 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Dept Assesment project",
-        short_name: "Dept Assesment project",
-        start_url: "/",
+        name: "DeptAssesment",
+        short_name: "DeptAssesment",
+        start_url: "dept-assesment.vercel.app",
         background_color: "#000",
         theme_color: "#000",
         display: "standalone",
